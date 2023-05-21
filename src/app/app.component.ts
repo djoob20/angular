@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
   interval$ !:Observable<string>
   ngOnInit(): void {
     this.interval$ = interval(1000).pipe(
-      map(value => value % 2 ===0 ?
+      map(value => value % 2 === 0 ?
         `je suis ${value} et je suis pair`:
         `je suis ${value} et je suis impair`)
     );
