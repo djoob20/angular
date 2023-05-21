@@ -1,0 +1,13 @@
+Un Observable haut niveau est un Observable qui souscrit à d'autres Observables.
+
+L'Observable qui souscrit est appelé l'Observable extérieur, et les Observables qui sont souscrits sont appelés les Observables intérieurs.
+
+Les opérateurs haut niveau servent à gérer les situations où une nouvelle émission arrive de l'Observable extérieur alors que la souscription précédente à l'Observable intérieur n'a pas encore complété :
+
+mergeMap  n'attend pas qu'un Observable intérieur complète pour souscrire au suivant – il assure la mise en parallèle.
+
+concatMap  attend que l'Observable intérieur complète avant de souscrire au suivant – il assure la mise en série, même lorsque l'Observable extérieur émet plusieurs fois.
+
+exhaustMap  ignore toute nouvelle émission de l'Observable extérieur tant qu'il y a une souscription active à un Observable intérieur.
+
+Lorsque  switchMap  reçoit une nouvelle émission de l'Observable extérieur, s'il y a une souscription active à un Observable intérieur, il l'annule et souscrit au suivant.
