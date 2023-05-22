@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-landing-page',
@@ -17,7 +18,7 @@ export class LandingPageComponent {
 
   }
 
-  onSubmitForm():void{
-    console.log(this.userEmail);
+  onSubmitForm(form: NgForm):void{
+    console.log(form.value);
   }
 }
