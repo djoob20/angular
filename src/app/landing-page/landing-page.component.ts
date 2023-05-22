@@ -8,10 +8,16 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
 
+  userEmail = "default@value.com";
   constructor(private router: Router){
 
   }
   onContinue(): void{
     this.router.navigateByUrl('facesnaps')
+
+  }
+
+  onSubmitForm():void{
+    console.log(this.userEmail);
   }
 }

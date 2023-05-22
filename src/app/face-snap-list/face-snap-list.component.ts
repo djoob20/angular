@@ -28,5 +28,6 @@ export class FaceSnapListComponent implements OnInit, OnDestroy{
       takeUntil(this.destroy$),
       tap(console.log)
     ).subscribe();
+
   }
 }
