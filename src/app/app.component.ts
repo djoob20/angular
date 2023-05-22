@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   redTrainsCalled = 0;
   yellowTrainsCalled = 0;
   ngOnInit(): void {
+     /*
     interval(500).pipe(
       take(10),
       map(value => value % 2 === 0 ? 'rouge' : 'jaune'),
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit{
       concatMap(color => this.getTrainObservable$(color)),
       tap(train => console.log(`Train %c${train.color} ${train.trainIndex} arrivé !`, `font-weight: bold; color: ${this.translateColor(train.color)}`))
     ).subscribe();
-    /*
+
     this.interval$ = interval(1000).pipe(
       filter(value => value % 3 ===0),
       map(value => value % 2 === 0 ?
