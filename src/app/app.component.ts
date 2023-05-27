@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {concatMap, delay, filter, interval, map, mergeMap, Observable, of, take, tap} from "rxjs";
+import {concatMap, delay, exhaustMap, filter, interval, map, mergeMap, Observable, of, take, tap} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,15 @@ import {concatMap, delay, filter, interval, map, mergeMap, Observable, of, take,
 })
 export class AppComponent implements OnInit{
 
-  interval$ !:Observable<string>
+  interval$ !:Observable<string>;
   redTrainsCalled = 0;
   yellowTrainsCalled = 0;
+
+  messages$!:Observable<string>;
+
+  logMessages:string[]= ['first', 'second', 'third'];
+  index:number = 0;
+
   ngOnInit(): void {
      /*
     interval(500).pipe(
@@ -32,6 +38,7 @@ export class AppComponent implements OnInit{
     );
 
      */
+
   }
 
   logger(text: string):void{
