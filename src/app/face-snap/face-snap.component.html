@@ -1,7 +1,7 @@
 <div class="face-snap-container" >
   <div class="face-snap-card" [ngClass]="{snapped: buttonSnapText==='Oops, unSnap!'}">
     <h2>{{ faceSnap.title | uppercase}}</h2>
-    <p>Mis en ligne {{ faceSnap.createdDate | date: 'le dd MM yyyy, à HH:mm' }}</p>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'mediumDate'}}</p>
 
     <p>
       <button (click)="onViewFaceSnap()">VIEW</button>
