@@ -14,11 +14,9 @@ export class FaceSnapComponent implements OnInit{
 
   buttonSnapText!: string ;
 
-  constructor(private faceSnapsService: FaceSnapsService,
-              private router: Router){}
+  constructor( private router: Router){}
 
   ngOnInit(): void {
-
     this.buttonSnapText = "Oh Snap!";
   }
 
