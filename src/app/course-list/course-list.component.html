@@ -1,0 +1,16 @@
+<div class="w3-bar w3-border w3-light-grey">
+  <p class="cour-header-title" *ngIf="course">{{course.title}}</p>
+</div>
+<div class="course-container">
+
+  <div class="course-description">
+    <p *ngIf="course">{{course.description}}</p>
+  </div>
+  <div class="cours-list-container w3-sidebar w3-light-grey w3-bar-block">
+    <h3 class="cours-side-bar-title w3-bar-item">Cours</h3>
+    <app-course *ngFor="let courseMember of courses"
+      [course]="courseMember">
+    </app-course>
+  </div>
+</div>
+

@@ -1,0 +1,44 @@
+
+.cours-side-bar-title{
+  border-bottom: 2px solid lightgray;
+  padding: 0 auto;
+}
+.cour-header-title{
+  text-align: center;
+  font-size: 16px;
+  margin: 8px auto;
+}
+.course-container{
+  .course-description{
+    width: 70%;
+    float: right;
+  }
+}
+.cours-list-container {
+  height: 600px;
+  width: 260px;
+  overflow-x: scroll;
+  border-right: 1px solid lightgray;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px lightgray;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}

@@ -1,0 +1,56 @@
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  ul{
+    list-style-type: none;
+    margin: 0;
+    li{
+      margin:18px 10px;
+     a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        text-align: center;
+     }
+
+   }
+}
+
+.navbar-left{
+  li{
+    float: left;
+  }
+}
+
+.navbar-right{
+  li{
+    float: right;
+  }
+}
+}
+
+
+
+.nav {
+  li{
+    a{
+      &:active{
+        background-color: #04AA6D;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav li a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
