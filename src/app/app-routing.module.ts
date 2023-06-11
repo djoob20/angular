@@ -8,7 +8,7 @@ import { PublicationComponent } from "./publication/publication.component";
 import { CourseListComponent } from "./course-list/course-list.component";
 
 const routes: Routes = [
-  {path:'cours/:id', component: CourseListComponent},
+  {path:'cours/:title', component: CourseListComponent},
   {path:'blog', component: BlogComponent},
   {path:'publications', component: PublicationComponent},
   {path:'articles', component: ArticleComponent},

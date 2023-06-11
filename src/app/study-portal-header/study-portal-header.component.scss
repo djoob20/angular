@@ -1,49 +1,64 @@
-
-.navbar {
-  width: 100%;
-  background-color: #555;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
-  ul{
-    list-style-type: none;
+header{
+  padding: 20px;
+  background-color: #0E2140;
+  .navbar {
+    width: 100%;
+    background-color: #0E2140;
+    overflow: auto;
     margin: 0;
-    li{
-      margin:18px 10px;
-     a {
-        padding: 10px;
+    padding: 0;
+    .brand{
+      float: left;
+      a{
         color: white;
         text-decoration: none;
         font-size: 18px;
-        text-align: center;
+        font-family: 'Rubik Marker Hatch', cursive;
+      }
+    }
+    ul{
+      list-style-type: none;
+      margin: 0;
+      li{
+        margin:auto 18px;
+       a {
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          text-align: center;
+       }
+
      }
+  }
 
-   }
-}
+  .navbar-left{
+    li{
+      float: left;
+    }
+  }
 
-.navbar-left{
-  li{
-    float: left;
+  .navbar-right{
+    li{
+      float: right;
+    }
+  }
   }
 }
-
-.navbar-right{
-  li{
-    float: right;
-  }
-}
-}
-
-
 
 .nav {
   li{
     a{
-      &:active{
-        background-color: #04AA6D;
+      &:hover{
+        // background-color: #000;
       }
     }
   }
+}
+
+.active{
+  border-bottom: 1px solid white;
+  padding: 0;
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 500px) {

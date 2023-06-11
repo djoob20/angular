@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course.models';
 import { CourseService } from '../services/course.services';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -10,19 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CourseListComponent implements OnInit{
 
-  courses!: Course[];
+  courses$!: Observable<Course[]>;
 
   course!: Course;
+  active: string = 'active';
+activeCourseNr!: number;
 
-  constructor(private courseService: CourseService, private route: ActivatedRoute){}
+  constructor(private courseService: CourseService, private route: ActivatedRoute, private router:Router){
+
+  }
 
   ngOnInit(): void {
-    console.log('CourseListComponent: ' + this.courses)
-    this.courses = this.courseService.getAllCourses();
+    this.courses$ = this.courseService.getAllCourses();
+    this.courseService.courseSub.subscribe(value =>{
+      this.course = value;
+      this.activeCourseNr = this.course.c_number;
+    });
+
+    }
 
 
-    const courseId:number = +this.route.snapshot.params['id'];
-    this.course = this.courseService.getFindCourseById(courseId);
-  }
 
 }

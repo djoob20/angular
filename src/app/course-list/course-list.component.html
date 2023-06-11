@@ -1,16 +1,15 @@
-<div class="w3-bar w3-border w3-light-grey">
-  <p class="cour-header-title" *ngIf="course">{{course.title}}</p>
+<div class="w3-bar w3-border course-header-title-container" *ngIf="course">
+  <p class="course-header-title" >{{course.title}}</p>
 </div>
 <div class="course-container">
-
-  <div class="course-description">
-    <p *ngIf="course">{{course.description}}</p>
-  </div>
-  <div class="cours-list-container w3-sidebar w3-light-grey w3-bar-block">
-    <h3 class="cours-side-bar-title w3-bar-item">Cours</h3>
-    <app-course *ngFor="let courseMember of courses"
-      [course]="courseMember">
+  <div class="course-list-container w3-sidebar w3-light-grey w3-bar-block">
+    <h3 class="course-side-bar-title w3-bar-item">Cours</h3>
+    <app-course *ngFor="let courseMember of courses$ | async"
+      [course]="courseMember" [ngClass]="{'active' : activeCourseNr === courseMember.c_number}">
     </app-course>
+  </div>
+  <div class="course-content" *ngIf="course">
+    <p >{{course.content}}</p>
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-<div class="single-course-container">
-  <p>{{course.description}}</p>
+<div class="single-course-container" *ngIf="course$ | async as course">
+  <p>{{course.content}}</p>
 </div>
 

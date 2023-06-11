@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, map, mergeMap, tap } from "rxjs";
 import { Course } from "../models/course.models";
 import { Injectable } from "@angular/core";
+import { ActivatedRoute } from '@angular/router';
 
 
 @Injectable({
@@ -7,125 +10,37 @@ import { Injectable } from "@angular/core";
 })
 export class CourseService{
 
-  courses:Course[] = [
-    {
-      id: 1,
-      title: 'Cours_1',
-      description: 'Cours_1 sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 2,
-      title: 'Cours_2',
-      description: 'Cours_2 sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 3,
-      title: 'Cours_3',
-      description: 'Cours_3 sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 4,
-      title: 'Cours_4',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 5,
-      title: 'Cours_5',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 6,
-      title: 'Cours_6',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 7,
-      title: 'Cours_7',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 8,
-      title: 'Cours_8',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 9,
-      title: 'Cours_9',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 10,
-      title: 'Cours_10',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 11,
-      title: 'Cours_11',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 12,
-      title: 'Cours_12',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 13,
-      title: 'Cours_13',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 14,
-      title: 'Cours_14',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    },
-    {
-      id: 15,
-      title: 'Cours_15',
-      description: 'cours sur quelque chose',
-      createdDate: new Date(),
-      views: 0
-    }
-  ];
+  SERVER_URL: string = 'http://localhost:9000/courses';
 
-  getAllCourses(): Course[]{
-    console.log('SERVICE: ' + this.courses);
-    return this.courses;
+  course!:Course;
+  courseNr: number = 1;
+  public courseSub!: BehaviorSubject<Course>;
+  constructor(private http: HttpClient, private route: ActivatedRoute){
+
+    this.initCourse();
+    console.log('SERVICE-------------:')
+    console.log('SERVICE-------------:' + this.course.title)
+    this.courseSub = new BehaviorSubject<Course>(this.course);
+
   }
 
-  getFindCourseById(courseId: number): Course{
-    const course = this.courses.find(course => course.id === courseId);
-    if (!course){
-      throw new Error("FaceSnap not found!");
-    }else{
-      return course;
+  getAllCourses(): Observable<Course[]>{
+    return this.http.get<Course[]>(this.SERVER_URL);
+  }
+
+  findCourseByNumber(courseNumber: number): Observable<Course>{
+    return this.http.get<Course>(`${this.SERVER_URL}/${courseNumber}`);
+  }
+
+  initCourse():void{
+    this.course = {
+      id: 1,
+      title: "Introduction au droit",
+      description: "Ce cours d'Introduction au droit aborde les spécificités de la matière (contraintes et outils spécifiques) ",
+      content: "Même si vous vous situez à l'aube de vos études de droit, vous avez tous une certaine idée, plus ou\nmoins vague, de ce qu’est le droit. Cette idée a sans doute guidé le choix de votre inscription à la faculté de droit.\nPour vous, sans doute, le droit est ce qui ordonne, ce qui interdit. L’idée que vous avez du droit est\nessentiellement liée à la contrainte, à la sanction.",
+      views: 11,
+      c_number: this.courseNr,
+      createdDate: new Date("2001-01-01")
     }
   }
 }

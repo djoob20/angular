@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course.models';
 import { CourseService } from '../services/course.services';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-single-course',
@@ -10,13 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SingleCourseComponent implements OnInit{
 
-  course!: Course;
+  course$!: Observable<Course>;
 
   constructor(private courseSevice: CourseService, private route:ActivatedRoute){}
 
   ngOnInit(): void {
-    const courseId:number = +this.route.snapshot.params['id'];
-    this.course = this.courseSevice.getFindCourseById(courseId);
+    const courseNumber:number = +this.route.snapshot.params['c_number'];
+    this.course$ = this.courseSevice.findCourseByNumber(courseNumber).pipe();
   }
 
 

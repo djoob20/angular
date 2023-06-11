@@ -1,6 +1,5 @@
 .banner{
   height: 400px;
-  background-color: aqua;
   .jumbotron{
     img{
       display: block;
@@ -16,10 +15,13 @@
     margin: auto;
     width: 50%;
     div{
-      width: 50%;
+      width: 40%;
       float: left;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
+      margin: 15px;
       h2{
-        width: 100px;
+        width: 200px;
       }
     }
   }
