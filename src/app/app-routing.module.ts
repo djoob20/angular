@@ -5,7 +5,7 @@ import { ArticleComponent } from "./article/article.component";
 import { BlogComponent } from "./blog/blog.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { PublicationComponent } from "./publication/publication.component";
-import { CourseListComponent } from "./course-list/course-list.component";
+import { CourseListComponent } from "./courses/components/course-list/course-list.component";
 
 const routes: Routes = [
   {path:'cours/:title', component: CourseListComponent},

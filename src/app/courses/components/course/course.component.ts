@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Course } from '../core/models/course.models';
 import { Router } from '@angular/router';
-import { CourseService } from '../core/services/course.services';
 import { Observable } from 'rxjs';
+import { Course } from 'src/app/core/models/course.models';
+import { CourseService } from 'src/app/core/services/course.services';
 
 @Component({
   selector: 'app-course',

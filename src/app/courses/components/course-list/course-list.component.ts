@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../core/models/course.models';
-import { CourseService } from '../core/services/course.services';
+import { Course } from '../../../core/models/course.models';
+import { CourseService } from '../../../core/services/course.services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
