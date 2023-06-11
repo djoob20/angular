@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CourseService } from '../services/course.services';
+import { CourseService } from 'src/app/core/services/course.services';
 
 @Component({
   selector: 'app-study-portal-header',

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map, mergeMap, tap } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Course } from "../models/course.models";
 import { Injectable } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';

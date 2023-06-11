@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Course } from '../models/course.models';
+import { Course } from '../core/models/course.models';
 import { Router } from '@angular/router';
-import { CourseService } from '../services/course.services';
+import { CourseService } from '../core/services/course.services';
 import { Observable } from 'rxjs';
 
 @Component({
