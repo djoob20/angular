@@ -1,29 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { FaceSnap } from '../models/face-snap.models';
-import {Injectable, PipeTransform} from '@angular/core'
+import {Injectable} from '@angular/core'
 import { Observable, map, switchMap } from 'rxjs';
-import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FaceSnapsService implements PipeTransform{
+export class FaceSnapsService{
 
   SERVER_URL:string = 'http://localhost:3000/facesnaps';
 
   constructor(private http: HttpClient){
 
   }
-  transform(value: any, ...args: any[]) {
-      let datePipe = new DatePipe("en-US");
-       value = datePipe.transform(value, 'dd/MM/yyyy à HH:mm');
-       return value;
-
-  }
 
   getAllFaceSnaps(): Observable<FaceSnap[]>{
-    const emp = this.http.get<Object[]>('http://localhost:9000/employees');
-    emp.forEach(empl => console.log(empl));
     return this.http.get<FaceSnap[]>(this.SERVER_URL);
   }
 
