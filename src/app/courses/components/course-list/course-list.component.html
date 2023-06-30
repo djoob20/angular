@@ -2,8 +2,8 @@
   <p class="course-header-title" >{{course.title}}</p>
 </div>
 <div class="course-container">
-  <div class="course-list-container w3-sidebar w3-light-grey w3-bar-block">
-    <h3 class="course-side-bar-title w3-bar-item">Cours</h3>
+  <div class="course-list-container">
+    <h3 class="course-side-bar-title">Cours</h3>
     <app-course *ngFor="let courseMember of courses$ | async"
       [course]="courseMember" [ngClass]="{'active' : activeCourseNr === courseMember.c_number}">
     </app-course>
@@ -11,5 +11,10 @@
   <div class="course-content" *ngIf="course">
     <p >{{course.content}}</p>
   </div>
+  <div class="blogs">
+    <app-blog *ngFor="let mBlog of blogs" [blog]="mBlog"></app-blog>
+  </div>
 </div>
+
+
 

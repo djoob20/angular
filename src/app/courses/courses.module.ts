@@ -3,21 +3,25 @@ import { CommonModule } from '@angular/common';
 import { CourseComponent } from './components/course/course.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { RouterModule } from '@angular/router';
+import { BlogsModule } from "../blogs/blogs.module";
+import { BlogComponent } from '../blogs/components/blog/blog.component';
 
 
 
 @NgModule({
-  declarations: [
-    CourseComponent,
-    CourseListComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports:[
-    CourseComponent,
-    CourseListComponent
-  ]
+    declarations: [
+        CourseComponent,
+        CourseListComponent
+    ],
+    exports: [
+        CourseComponent,
+        CourseListComponent,
+        BlogComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        BlogsModule
+    ]
 })
 export class CoursesModule { }

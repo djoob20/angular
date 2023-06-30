@@ -25,7 +25,7 @@
 .course-side-bar-title{
   border-bottom: 2px solid lightgray;
   padding: 0 auto;
-
+  text-align: center;
 }
 .course-header-title-container{
   background-color: #c6c5cc;
@@ -40,20 +40,25 @@
 
 }
 .course-container{
+    display: flex;
+    flex-direction: row;
+  .course-list-container {
+    height: 500px;
+    width: 22%;
+    overflow-y: scroll;
+    border-right: 2px solid lightgray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
   .course-content{
-    width: 76%;
-    float: right;
     padding: 0 15px;
+    width: 65%;
   }
 }
-.course-list-container {
-  height: 600px;
-  width: 23%;
-  float: left;
-  overflow-x: scroll;
-  border-right: 2px solid lightgray;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+.blog{
+  width: 14%;
 }
+
 .active{
   font-weight: bolder;
   text-decoration: underline;

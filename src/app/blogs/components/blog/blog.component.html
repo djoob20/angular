@@ -1,1 +1,8 @@
-<p>blog works!</p>
+<div class="blog-container">
+  <div class="blog-top">
+    <p>crée par {{blog.creator}}</p>
+    <p>{{blog.createdDate | date:'dd/MM/YY HH:mm'}}</p>
+  </div>
+  <p>{{blog.title}}</p>
+  <a id="blog-link" routerLink="/blog" routerLinkActive="router-link-active" >aller au blog</a>
+</div>

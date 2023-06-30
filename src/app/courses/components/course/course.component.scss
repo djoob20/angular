@@ -1,4 +1,7 @@
-.cours-content{
-  width: 75%;
-  float: right;
+.cours-container{
+  padding: 8px;
+  &:hover{
+    background-color: lightgray;
+    cursor: pointer;
+  }
 }
